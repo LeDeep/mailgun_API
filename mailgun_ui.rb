@@ -59,17 +59,19 @@ end
 def unsubscribes
   input = nil
   until input == 'send'
-    print "unsubscribes:>> "
+    print "unsubscribes:>> do: "
     input = gets.chomp
     case input
+    when 'list'
+      puts Unsubscribe.all
     when 'add'
-      print "add: "
+      print "address?:>> add: "
       address = gets.chomp
     when 'remove'
-      print "remove: "
-      subject = gets.chomp
-    when 'text'
-      print "text: "
+      print "address?:>> remove: "
+      Unsubscribe.
+    when 'check'
+      print "address?:>> check: "
       text = gets.chomp
     when 'send'
       sent_message = Message.send_it({:to => to , :from => 'epicodus@foobar2.epicodus.mailgun.org' , :subject => subject , :text => text})
@@ -84,7 +86,7 @@ def unsubscribes
     end
   end
 
-  
+
 end
 
 
